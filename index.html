@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>С Днём Рождения, любимая ❤</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Прелоадер -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-heart">❤</div>
+    <p>Загружаю кое-что особенное…</p>
+  </div>
+
+  <!-- Канвас с сердечками (фон) -->
+  <canvas id="hearts-canvas"></canvas>
+
+  <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-pre">Сегодня самый особенный день…</p>
+      <h1 class="hero-title">С Днём Рождения,<br><span class="hero-name" id="hero-name">Любимая</span></h1>
+      <p class="hero-typed"><span id="typed-text"></span><span class="cursor">|</span></p>
+      <a href="#counter" class="hero-btn">Открыть сюрприз ↓</a>
+    </div>
+    <div class="hero-sparkles">
+      <span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span><span>✧</span>
+    </div>
+  </header>
+
+  <!-- ===== СЧЁТЧИК ===== -->
+  <section class="section counter-section" id="counter">
+    <h2 class="section-title reveal">Мы вместе уже</h2>
+    <div class="counter-grid reveal">
+      <div class="counter-card"><span class="counter-num" id="cnt-days">0</span><span class="counter-label">дней</span></div>
+      <div class="counter-card"><span class="counter-num" id="cnt-hours">0</span><span class="counter-label">часов</span></div>
+      <div class="counter-card"><span class="counter-num" id="cnt-minutes">0</span><span class="counter-label">минут</span></div>
+      <div class="counter-card"><span class="counter-num" id="cnt-seconds">0</span><span class="counter-label">секунд</span></div>
+    </div>
+    <p class="counter-note reveal">…и каждая секунда с тобой — счастье ✨</p>
+  </section>
+
+  <!-- ===== ПРИЧИНЫ ===== -->
+  <section class="section reasons-section">
+    <h2 class="section-title reveal">Почему я тебя люблю</h2>
+    <div class="reasons-grid">
+      <div class="reason-card reveal"><div class="reason-icon">🌅</div><h3>Твоя улыбка</h3><p>Она делает даже самый серый день ярким и тёплым.</p></div>
+      <div class="reason-card reveal"><div class="reason-icon">🫶</div><h3>Твоя забота</h3><p>Рядом с тобой я чувствую себя самым счастливым человеком.</p></div>
+      <div class="reason-card reveal"><div class="reason-icon">😂</div><h3>Твой смех</h3><p>Самый любимый звук на свете. Готов слушать его вечно.</p></div>
+      <div class="reason-card reveal"><div class="reason-icon">✨</div><h3>Твои глаза</h3><p>В них можно утонуть. И я тону — каждый день заново.</p></div>
+      <div class="reason-card reveal"><div class="reason-icon">🌍</div><h3>Ты — мой дом</h3><p>Неважно где мы: с тобой везде уютно и спокойно.</p></div>
+      <div class="reason-card reveal"><div class="reason-icon">♾️</div><h3>Просто ты</h3><p>Ты есть — и этого достаточно, чтобы любить бесконечно.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== ГАЛЕРЕЯ ===== -->
+  <section class="section gallery-section">
+    <h2 class="section-title reveal">Наши моменты</h2>
+    <p class="section-sub reveal">Каждый кадр — маленькая история нашего счастья</p>
+    <div class="gallery reveal" id="gallery">
+      <figure class="gallery-item" data-type="img"><img src="images_videos/WhatsApp%20Image%202026-07-06%20at%2020.56.46.jpeg" alt="Наш момент" loading="lazy"></figure>
+      <figure class="gallery-item" data-type="video"><video src="images_videos/WhatsApp%20Video%202026-07-06%20at%2020.56.49.mp4" muted loop playsinline preload="metadata"></video><span class="play-badge">▶</span></figure>
+      <figure class="gallery-item" data-type="img"><img src="images_videos/4.jpeg" alt="Наш момент" loading="lazy"></figure>
+      <figure class="gallery-item" data-type="img"><img src="images_videos/WhatsApp%20Image%202026-07-06%20at%2020.56.47.jpeg" alt="Наш момент" loading="lazy"></figure>
+      <figure class="gallery-item" data-type="video"><video src="images_videos/43.mp4" muted loop playsinline preload="metadata"></video><span class="play-badge">▶</span></figure>
+      <figure class="gallery-item" data-type="img"><img src="images_videos/32.jpeg" alt="Наш момент" loading="lazy"></figure>
+      <figure class="gallery-item" data-type="img"><img src="images_videos/WhatsApp%20Image%202026-07-06%20at%2020.56.52.jpeg" alt="Наш момент" loading="lazy"></figure>
+      <figure class="gallery-item" data-type="video"><video src="images_videos/WhatsApp%20Video%202026-07-06%20at%2020.56.52.mp4" muted loop playsinline preload="metadata"></video><span class="play-badge">▶</span></figure>
+      <figure class="gallery-item" data-type="img"><img src="images_videos/42.jpeg" alt="Наш момент" loading="lazy"></figure>
+      <figure class="gallery-item" data-type="video"><video src="images_videos/53.mp4" muted loop playsinline preload="metadata"></video><span class="play-badge">▶</span></figure>
+      <figure class="gallery-item" data-type="img"><img src="images_videos/43.jpeg" alt="Наш момент" loading="lazy"></figure>
+      <figure class="gallery-item" data-type="video"><video src="images_videos/5454.mp4" muted loop playsinline preload="metadata"></video><span class="play-badge">▶</span></figure>
+      <figure class="gallery-item" data-type="img"><img src="images_videos/WhatsApp%20Image%202026-07-06%20at%2020.56.53.jpeg" alt="Наш момент" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ===== ПИСЬМО ===== -->
+  <section class="section letter-section">
+    <h2 class="section-title reveal">Письмо для тебя</h2>
+    <div class="envelope reveal" id="envelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-body">
+        <div class="envelope-heart">❤</div>
+        <p class="envelope-hint">Нажми, чтобы открыть</p>
+      </div>
+    </div>
+    <div class="letter hidden" id="letter">
+      <div class="letter-paper">
+        <p id="letter-text"></p>
+        <p class="letter-sign">Навсегда твой ❤</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ФИНАЛ ===== -->
+  <section class="section final-section">
+    <h2 class="final-title reveal">С Днём Рождения! 🎂</h2>
+    <p class="final-sub reveal">Пусть этот год принесёт тебе столько счастья,<br>сколько ты даришь мне каждый день.</p>
+    <button class="final-btn reveal" id="celebrate-btn">Нажми на меня ❤</button>
+    <p class="final-msg hidden" id="final-msg">Я люблю тебя больше всего на свете! 💖🎉</p>
+  </section>
+
+  <footer class="footer">
+    <p>Сделано с ❤ специально для тебя · <span id="year"></span></p>
+  </footer>
+
+  <!-- Лайтбокс -->
+  <div class="lightbox hidden" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <div class="lightbox-content" id="lightbox-content"></div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
