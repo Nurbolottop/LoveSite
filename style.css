@@ -410,6 +410,28 @@ body {
 }
 .final-msg.hidden { display: none; }
 
+/* ============ КНОПКА МУЗЫКИ ============ */
+.music-btn {
+  position: fixed;
+  bottom: 26px; right: 26px;
+  z-index: 900;
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(135deg, var(--pink), #c86bff);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 34px rgba(255, 107, 157, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.music-btn:hover { transform: scale(1.1); }
+.music-btn .music-icon { display: block; }
+.music-btn.playing .music-icon { animation: spin 3s linear infinite; }
+.music-btn.paused { opacity: 0.7; filter: grayscale(0.6); }
+@keyframes spin { to { transform: rotate(360deg); } }
+
 /* ============ ФУТЕР ============ */
 .footer {
   position: relative;

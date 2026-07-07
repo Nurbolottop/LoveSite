@@ -169,6 +169,56 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 })();
 
 /* ================================================================
+   ФОНОВАЯ МУЗЫКА
+   ================================================================ */
+const music = (function () {
+  const audio = document.getElementById('bg-music');
+  const btn = document.getElementById('music-btn');
+  audio.volume = 0.6;
+  let userPaused = false;
+
+  function updateBtn() {
+    btn.classList.toggle('playing', !audio.paused);
+    btn.classList.toggle('paused', audio.paused);
+  }
+
+  function play() {
+    audio.play().then(updateBtn).catch(() => {});
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (audio.paused) {
+      userPaused = false;
+      play();
+    } else {
+      userPaused = true;
+      audio.pause();
+      updateBtn();
+    }
+  });
+
+  // Браузеры блокируют автозапуск звука — стартуем при первом клике по странице
+  function firstInteraction(e) {
+    // Не стартуем музыку, если первый клик открыл видео
+    if (e.target.closest('.gallery-item[data-type="video"], .lightbox')) return;
+    if (audio.paused && !userPaused) play();
+    document.removeEventListener('click', firstInteraction);
+  }
+  document.addEventListener('click', firstInteraction);
+
+  audio.addEventListener('play', updateBtn);
+  audio.addEventListener('pause', updateBtn);
+  updateBtn();
+
+  return {
+    // Приглушаем на время просмотра видео и возвращаем обратно
+    duck() { if (!audio.paused) audio.pause(); },
+    unduck() { if (!userPaused) play(); },
+  };
+})();
+
+/* ================================================================
    ГАЛЕРЕЯ + ЛАЙТБОКС
    ================================================================ */
 (function gallery() {
@@ -188,6 +238,7 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     item.addEventListener('click', () => {
       content.innerHTML = '';
       if (item.dataset.type === 'video') {
+        music.duck();
         const v = document.createElement('video');
         v.src = media.src;
         v.controls = true;
@@ -206,9 +257,11 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   });
 
   function close() {
+    const hadVideo = content.querySelector('video');
     lightbox.classList.add('hidden');
     content.innerHTML = '';
     document.body.style.overflow = '';
+    if (hadVideo) music.unduck();
   }
   closeBtn.addEventListener('click', close);
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
