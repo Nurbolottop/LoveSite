@@ -29,10 +29,28 @@ const CONFIG = {
 };
 
 /* ================================================================
-   ПРЕЛОАДЕР
+   ПРЕЛОАДЕР + АВТОЗАПУСК МУЗЫКИ
    ================================================================ */
 window.addEventListener('load', () => {
-  setTimeout(() => document.getElementById('preloader').classList.add('done'), 900);
+  const preloader = document.getElementById('preloader');
+  const preloaderText = document.getElementById('preloader-text');
+
+  setTimeout(() => {
+    // Пробуем запустить музыку сразу при заходе
+    music.start().then((started) => {
+      if (started) {
+        preloader.classList.add('done');
+      } else {
+        // Автозапуск заблокирован браузером — просим один тап
+        preloader.classList.add('ready');
+        preloaderText.textContent = 'Нажми на сердечко ❤';
+        preloader.addEventListener('click', () => {
+          music.start();
+          preloader.classList.add('done');
+        }, { once: true });
+      }
+    });
+  }, 900);
 });
 
 /* ================================================================
@@ -183,7 +201,7 @@ const music = (function () {
   }
 
   function play() {
-    audio.play().then(updateBtn).catch(() => {});
+    return audio.play().then(() => { updateBtn(); return true; }).catch(() => false);
   }
 
   btn.addEventListener('click', (e) => {
@@ -215,6 +233,7 @@ const music = (function () {
     // Приглушаем на время просмотра видео и возвращаем обратно
     duck() { if (!audio.paused) audio.pause(); },
     unduck() { if (!userPaused) play(); },
+    start: play, // возвращает Promise<boolean> — удалось ли запустить
   };
 })();
 

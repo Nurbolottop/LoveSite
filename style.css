@@ -37,6 +37,13 @@ body {
   filter: drop-shadow(0 0 20px var(--pink));
 }
 .preloader p { color: var(--pink-light); font-size: 14px; letter-spacing: 2px; }
+.preloader.ready { cursor: pointer; }
+.preloader.ready .preloader-heart {
+  font-size: 84px;
+  animation-duration: 0.8s;
+  filter: drop-shadow(0 0 34px var(--pink));
+}
+.preloader.ready p { font-size: 17px; color: var(--white); }
 
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
