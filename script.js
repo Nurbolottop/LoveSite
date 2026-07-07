@@ -34,23 +34,19 @@ const CONFIG = {
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   const preloaderText = document.getElementById('preloader-text');
+  const enterBtn = document.getElementById('enter-btn');
 
+  // Через секунду «загрузка» превращается в приглашение войти
   setTimeout(() => {
-    // Пробуем запустить музыку сразу при заходе
-    music.start().then((started) => {
-      if (started) {
-        preloader.classList.add('done');
-      } else {
-        // Автозапуск заблокирован браузером — просим один тап
-        preloader.classList.add('ready');
-        preloaderText.textContent = 'Нажми на сердечко ❤';
-        preloader.addEventListener('click', () => {
-          music.start();
-          preloader.classList.add('done');
-        }, { once: true });
-      }
-    });
-  }, 900);
+    preloader.classList.add('ready');
+    preloaderText.textContent = 'Для тебя приготовлено кое-что особенное';
+    enterBtn.classList.remove('hidden');
+  }, 1000);
+
+  enterBtn.addEventListener('click', () => {
+    music.start(); // клик по кнопке — жест пользователя, звук разрешён
+    preloader.classList.add('done');
+  }, { once: true });
 });
 
 /* ================================================================

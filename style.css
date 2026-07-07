@@ -37,13 +37,28 @@ body {
   filter: drop-shadow(0 0 20px var(--pink));
 }
 .preloader p { color: var(--pink-light); font-size: 14px; letter-spacing: 2px; }
-.preloader.ready { cursor: pointer; }
 .preloader.ready .preloader-heart {
   font-size: 84px;
   animation-duration: 0.8s;
   filter: drop-shadow(0 0 34px var(--pink));
 }
 .preloader.ready p { font-size: 17px; color: var(--white); }
+.preloader-btn {
+  padding: 18px 52px;
+  font-size: 19px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, var(--pink), #c86bff, var(--pink));
+  background-size: 200% auto;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  box-shadow: 0 14px 50px rgba(255, 107, 157, 0.45);
+  animation: shine 3s linear infinite, pulse 2s ease-in-out infinite, fadeUp 0.6s ease both;
+  transition: transform 0.3s ease;
+}
+.preloader-btn:hover { transform: scale(1.07); }
 
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
