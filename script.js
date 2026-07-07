@@ -6,7 +6,7 @@ const CONFIG = {
   name: 'Любимая',
 
   // Дата начала ваших отношений: год, месяц (1-12), день
-  relationshipStart: new Date(2024, 0, 1),
+  relationshipStart: new Date(2025, 5, 11),
 
   // Фразы, которые печатаются на главном экране
   typedPhrases: [
